@@ -1,8 +1,15 @@
 import './UserCard.css'
 
+/**
+ * UserCard
+ * - Presentational card matching the dashboard screenshot
+ * - Shows avatar, online status, name/email, department badge
+ * - Exposes Edit/Delete actions handled by the parent
+ */
 const FALLBACK_AVATAR =
   'https://avatars.dicebear.com/api/initials/example.svg?background=%23e0ecff'
 
+// Department → badge color mapping to keep styling logic centralized.
 const departmentClassName = (department) => {
   switch (department) {
     case 'Engineering':
@@ -20,6 +27,7 @@ const departmentClassName = (department) => {
 
 export function UserCard({ user, onEdit, onDelete }) {
   const handleImageError = (event) => {
+    // Prevent infinite error loop if the fallback URL fails for any reason.
     if (event.target.src === FALLBACK_AVATAR) return
     // eslint-disable-next-line no-param-reassign
     event.target.src = FALLBACK_AVATAR
@@ -37,6 +45,7 @@ export function UserCard({ user, onEdit, onDelete }) {
           />
         </div>
         <div className="user-status">
+          {/* Visual indicator (green dot + label) as shown in the screenshot */}
           <span className="status-dot" />
           <span className="status-text-inline">{user.isOnline ? 'Online' : 'Offline'}</span>
         </div>
@@ -51,6 +60,7 @@ export function UserCard({ user, onEdit, onDelete }) {
       </div>
 
       <div className="user-card-footer">
+        {/* Kept as a button for accessibility; styled to match a link */}
         <button type="button" className="view-posts-link">
           View Posts
         </button>

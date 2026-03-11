@@ -2,6 +2,12 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import './UserFormModal.css'
 
+/**
+ * UserFormModal
+ * - Single form component reused for both Add and Edit flows
+ * - Uses react-hook-form for input registration + validation + reset/prefill
+ * - Parent owns persistence (local state); this component only collects values
+ */
 const DEFAULT_VALUES = {
   firstName: '',
   lastName: '',
@@ -18,10 +24,18 @@ export function UserFormModal({ isOpen, mode, initialValues, onClose, onSubmit, 
     reset,
     formState: { errors, isSubmitting },
   } = useForm({
+    // Keep defaultValues stable; we explicitly reset when opening or switching modes.
     defaultValues: DEFAULT_VALUES,
   })
 
   useEffect(() => {
+    /**
+     * Prefill strategy:
+     * - When opening in edit mode: reset form to the selected user's values
+     * - When opening in add mode: reset to clean defaults
+     *
+     * Using reset() avoids stale values when switching between users quickly.
+     */
     if (isOpen) {
       if (mode === 'edit' && initialValues) {
         reset({
@@ -39,15 +53,19 @@ export function UserFormModal({ isOpen, mode, initialValues, onClose, onSubmit, 
   }, [isOpen, mode, initialValues, reset])
 
   const handleClose = () => {
+    // While submitting, ignore close clicks to avoid confusing partial updates.
     if (isSubmitting) return
     onClose()
   }
 
   const onValidSubmit = (values) => {
+    // Delegate to parent to decide add vs edit behavior.
     onSubmit(values)
+    // Reset for the next open; parent also closes after successful submit.
     reset(DEFAULT_VALUES)
   }
 
+  // Avoid rendering (and trapping focus) when not open.
   if (!isOpen) {
     return null
   }
@@ -97,6 +115,7 @@ export function UserFormModal({ isOpen, mode, initialValues, onClose, onSubmit, 
               {...register('email', {
                 required: 'Email is required',
                 pattern: {
+                  // Simple email validation (good enough for UI-level checks).
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                   message: 'Please enter a valid email address',
                 },
