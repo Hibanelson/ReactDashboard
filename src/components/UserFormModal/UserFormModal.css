@@ -1,0 +1,143 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.28);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  z-index: 40;
+}
+
+.modal-panel {
+  width: 100%;
+  max-width: 520px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.3);
+  border: 1px solid #e1e7ee;
+  padding: 18px 20px 20px;
+}
+
+@media (min-width: 768px) {
+  .modal-panel {
+    padding: 20px 22px 22px;
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #243b53;
+}
+
+.modal-close {
+  border: none;
+  background: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #9fb3c8;
+}
+
+.modal-form {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px 16px;
+}
+
+@media (min-width: 600px) {
+  .modal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #52606d;
+}
+
+.form-field input,
+.form-field select {
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd2e1;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+
+.field-error {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #c53030;
+}
+
+.modal-footer {
+  margin-top: 4px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-secondary,
+.modal-primary {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.modal-secondary {
+  background-color: #f5f7fb;
+  border-color: #d0d7e2;
+  color: #52606d;
+}
+
+.modal-primary {
+  background-color: #22a669;
+  border-color: #1f9a62;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+.modal-secondary:disabled,
+.modal-primary:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+

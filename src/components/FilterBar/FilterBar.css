@@ -1,0 +1,82 @@
+.filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filterbar-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #d0d7e2;
+  background-color: #f5f7fb;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b7b8f;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.filter-pill--active {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+}
+
+.filter-pill:hover {
+  border-color: #b4c0d3;
+  background-color: #eef1f8;
+}
+
+.add-user-button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background-color: #22a669;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+.add-user-button:hover {
+  background-color: #1c8d58;
+}
+
+.add-user-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+@media (max-width: 600px) {
+  .add-user-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

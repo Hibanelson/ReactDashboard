@@ -1,0 +1,130 @@
+.dashboard-page {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 16px;
+}
+
+.dashboard-title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #243b53;
+}
+
+.dashboard-panel {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(15, 35, 52, 0.12);
+  border: 1px solid rgba(15, 35, 52, 0.06);
+  padding: 20px 24px 24px;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-panel {
+    padding: 24px 28px 28px;
+  }
+}
+
+.dashboard-panel-header {
+  margin-bottom: 12px;
+}
+
+.panel-title {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #243b53;
+}
+
+.panel-divider {
+  height: 1px;
+  background-color: #e1e7ee;
+}
+
+.dashboard-section {
+  margin-top: 18px;
+}
+
+.dashboard-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-section-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.section-title {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #9fb3c8;
+}
+
+.users-section {
+  margin-top: 22px;
+}
+
+.users-section-header {
+  margin-bottom: 8px;
+}
+
+.users-content {
+  margin-top: 8px;
+  max-height: 550px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.users-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.users-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.users-content::-webkit-scrollbar-thumb {
+  background: #c4d1e1;
+  border-radius: 999px;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 4px;
+}
+
+@media (min-width: 768px) {
+  .users-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .users-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.status-text {
+  margin: 16px 4px;
+  font-size: 14px;
+  color: #52606d;
+}
+
+.error-text {
+  color: #c23030;
+}
+
